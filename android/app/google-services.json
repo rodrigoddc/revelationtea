@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "159830119448",
+    "firebase_url": "https://revelation-tea.firebaseio.com",
+    "project_id": "revelation-tea",
+    "storage_bucket": "revelation-tea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159830119448:android:5145fdc5212206018b1f6d",
+        "android_client_info": {
+          "package_name": "delfino.rodrigo.revelationtea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159830119448-8761tlg68rqtjn156o0j53132dbd41gb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7z-HWnMLqQ8H35sjxRDvi5OV4PAjP0f0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159830119448-8761tlg68rqtjn156o0j53132dbd41gb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
