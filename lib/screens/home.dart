@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:revelationtea/components/gender_box.dart';
+import 'package:revelationtea/modules/sign_in.dart';
+import 'package:revelationtea/widgets/gender_box.dart';
 
 class Home extends StatelessWidget {
   static const String id = 'home';
@@ -23,6 +24,13 @@ class Home extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.lightBlueAccent,
                     borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: RaisedButton(
+                    onPressed: () {
+                      signOutGoogle();
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.close),
                   ),
                 ),
               ),
