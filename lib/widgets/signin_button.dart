@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:revelationtea/modules/sign_in.dart';
-import 'package:revelationtea/screens/home.dart';
+import 'package:revelationtea/modules/sigin_in_google.dart';
 
 class SigninButton extends StatelessWidget {
   @override
@@ -9,15 +7,7 @@ class SigninButton extends StatelessWidget {
     return OutlineButton(
       splashColor: Colors.grey,
       onPressed: () {
-        signInWithGoogle().whenComplete(() {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return Home();
-              },
-            ),
-          );
-        });
+        onGoogleSignIn(context);
       },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,

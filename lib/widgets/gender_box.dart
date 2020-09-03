@@ -2,20 +2,26 @@ import 'package:flutter/material.dart';
 
 class GenderBox extends StatelessWidget {
   final String gender;
+  final String imageBackground;
+  Function onPressed;
 
-  GenderBox({this.gender});
+  GenderBox(
+      {@required this.gender,
+      @required this.onPressed,
+      @required this.imageBackground});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
-      child: Container(
-        margin: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.black54,
-        ),
-        child: Center(
+      child: FlatButton(
+        onPressed: onPressed,
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(imageBackground)),
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Text(gender),
         ),
       ),
