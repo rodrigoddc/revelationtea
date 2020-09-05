@@ -35,8 +35,9 @@ dependencies:
   cloud_firestore: ^0.14.0+2
   # google_sign_in
   google_sign_in: ^4.5.3
-  # GetX
-  get: ^3.5.1
+  # url phone launcher
+  url_launcher: ^5.5.2
+
 
 dev_dependencies:
   flutter_test:
@@ -70,11 +71,37 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+  - family: ArchitectsDaughter
+    fonts:
+      - asset: fonts/ArchitectsDaughter-Regular.ttf
+  - family: Calligraffitti
+    fonts:
+      - asset: fonts/Calligraffitti-Regular.ttf
+  - family: Gaegu
+    fonts:
+      - asset: fonts/Gaegu-Regular.ttf
+  - family: HomemadeApple
+    fonts:
+      - asset: fonts/HomemadeApple-Regular.ttf
+  - family: IndieFlower
+    fonts:
+      - asset: fonts/IndieFlower-Regular.ttf
+  - family: PermanentMarker
+    fonts:
+      - asset: fonts/PermanentMarker-Regular.ttf
+  - family: RockSalt
+    fonts:
+      - asset: fonts/RockSalt-Regular.ttf
+  - family: Sacramento
+    fonts:
+      - asset: fonts/Sacramento-Regular.ttf
+  - family: Tangerine
+    fonts:
+      - asset: fonts/Tangerine-Regular.ttf
+  - family: WaitingfortheSunrise
+    fonts:
+      - asset: fonts/WaitingfortheSunrise-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

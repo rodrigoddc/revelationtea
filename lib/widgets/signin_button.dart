@@ -19,7 +19,7 @@ class SigninButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image(
-              image: AssetImage("assets/img/google_logo.png"),
+              image: AssetImage("assets/img/google_logo.webp"),
               height: 35.0,
             ),
             Padding(

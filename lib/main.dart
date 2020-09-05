@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:revelationtea/screens/home.dart';
-import 'package:revelationtea/screens/login.dart';
 import 'package:flutter/services.dart';
+import 'package:revelationtea/screens/login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,13 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Revelation Tea',
-      initialRoute: LoginPage.id,
-      routes: {
-        Home.id: (context) => Home(),
-        LoginPage.id: (context) => LoginPage(),
-      },
+      home: LoginPage(),
       theme: ThemeData(
-        primaryColor: Colors.black,
+        fontFamily: 'ArchitectsDaughter',
         textTheme: TextTheme(
           bodyText1: TextStyle(
             color: Colors.white,

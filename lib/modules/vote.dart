@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<String> vote(
     {String user_email, bool choice_bool, String choice_gender}) async {
-  bool alreadyVoted = false;
-
   if (user_email != '') {
     final _firestore = FirebaseFirestore.instance;
 
@@ -33,7 +31,6 @@ Future<String> vote(
     }
   } else {
     var resp = 'Email null';
-    print('email null');
     return resp;
   }
 }
