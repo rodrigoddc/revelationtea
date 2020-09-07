@@ -21,7 +21,7 @@ Future<User> signInWithGoogle() async {
 
   if (isSignedIn) {
     // if so, return the current user
-    user = await _auth.currentUser;
+    user = _auth.currentUser;
   } else {
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleAuth =
@@ -34,14 +34,14 @@ Future<User> signInWithGoogle() async {
 
     user = (await FirebaseAuth.instance.signInWithCredential(credential)).user;
   }
-  print('${user.displayName} logged in');
+  print('Google user ${user.displayName} logged in');
   return user;
 }
 
 void signOutGoogle() async {
   await _googleSignIn.signOut();
 
-  print("User Sign Out");
+  print("Google User Sign Out");
 }
 
 void onGoogleSignIn(context) async {

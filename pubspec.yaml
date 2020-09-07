@@ -37,6 +37,8 @@ dependencies:
   google_sign_in: ^4.5.3
   # url phone launcher
   url_launcher: ^5.5.2
+  # Dashed container
+  dotted_border: ^1.0.6
 
 
 dev_dependencies:

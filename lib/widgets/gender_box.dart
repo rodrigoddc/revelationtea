@@ -5,7 +5,7 @@ class GenderBox extends StatelessWidget {
   final String gender;
   final String imageBackground;
   final Color color;
-  Function onPressed;
+  final Function onPressed;
 
   GenderBox({
     @required this.gender,
@@ -35,6 +35,7 @@ class GenderBox extends StatelessWidget {
               child: Container(
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
+                  color: Colors.black,
                   border: Border.all(color: color, width: 3),
                   image: DecorationImage(
                     image: AssetImage(imageBackground),

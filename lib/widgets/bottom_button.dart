@@ -1,19 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:revelationtea/modules/vote.dart';
 
 class BottomButton extends StatelessWidget {
   final Function onPressed;
-  final bool choiced_bool;
-  final String choiced_gender;
+  final bool choicedBool;
+  final String choicedGender;
   final String label;
   final Icon icon;
   final Color color;
 
   const BottomButton({
     Key key,
-    this.choiced_bool,
-    this.choiced_gender,
+    this.choicedBool,
+    this.choicedGender,
     @required this.label,
     this.icon,
     @required this.color,
@@ -25,7 +24,8 @@ class BottomButton extends StatelessWidget {
     return Container(
       width: 180,
       height: 50,
-      child: RaisedButton(
+      child: OutlineButton(
+        borderSide: BorderSide(color: color, width: 3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
           side: BorderSide(color: color),

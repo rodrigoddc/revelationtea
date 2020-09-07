@@ -1,31 +1,35 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// ignore: missing_return
 Future<String> vote(
-    {String user_email, bool choice_bool, String choice_gender}) async {
-  if (user_email != '') {
+    // ignore: non_constant_identifier_names
+    {String userEmail,
+    bool choiceBool,
+    String choiceGender}) async {
+  if (userEmail != '') {
     final _firestore = FirebaseFirestore.instance;
 
     final testDocs = await FirebaseFirestore.instance
         .collection('votes')
-        .where('user_email', isEqualTo: user_email.toLowerCase())
+        .where('user_email', isEqualTo: userEmail.toLowerCase())
         .limit(1)
         .get();
 
     if (testDocs.docs.length > 0) {
       //already vote
-      print('$user_email already voted!');
+      print('$userEmail already voted!');
     } else {
       // new vote
       _firestore.collection('votes').add({
-        'user_email': user_email,
-        'choice_bool': choice_bool,
-        'choice_gender': choice_gender,
+        'user_email': userEmail,
+        'choice_bool': choiceBool,
+        'choice_gender': choiceGender,
         'created_at': DateTime.now(),
       });
 
-      var resp = '$user_email voted on $choice_gender!';
+      var resp = '$userEmail voted on $choiceGender!';
 
-      print('$user_email voted on $choice_gender!');
+      print('$userEmail voted on $choiceGender!');
 
       return resp;
     }

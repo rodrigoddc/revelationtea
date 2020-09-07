@@ -13,6 +13,7 @@ class Results extends StatelessWidget {
         Text(
           'Resultados',
           style: TextStyle(
+            color: Colors.white,
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
@@ -21,6 +22,7 @@ class Results extends StatelessWidget {
           child: Text(
             'Male: $m',
             style: TextStyle(
+              color: Colors.white,
               fontSize: 30,
             ),
           ),
@@ -29,6 +31,7 @@ class Results extends StatelessWidget {
           child: Text(
             'Female: $f',
             style: TextStyle(
+              color: Colors.white,
               fontSize: 30,
             ),
           ),
