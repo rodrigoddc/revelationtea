@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:revelationtea/modules/get_results.dart';
+import 'package:revelationtea/modules/launch_youtube.dart';
 import 'package:revelationtea/modules/sigin_in_google.dart';
 import 'package:revelationtea/modules/vote.dart';
 import 'package:revelationtea/screens/results.dart';
@@ -185,7 +186,12 @@ class _VoteState extends State<Vote> {
                         ),
                         padding: EdgeInsets.all(10),
                         color: Colors.red,
-                        onPressed: () {},
+                        onPressed: () async {
+                          String url;
+                          await urlYoutube()
+                              .then((value) => url = value)
+                              .whenComplete(() => launchYoutubeURL(url));
+                        },
                         child: Column(children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
