@@ -1,37 +1,44 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
 // ignore: missing_return
 Future<String> vote(
-    // ignore: non_constant_identifier_names
-    {String userEmail,
-    bool choiceBool,
-    String choiceGender}) async {
+    {@required String userEmail, bool choiceBool, String choiceGender}) async {
+  var resp;
+
   if (userEmail != '') {
     final _firestore = FirebaseFirestore.instance;
 
-    final testDocs = await FirebaseFirestore.instance
+    var testDocs = FirebaseFirestore.instance
         .collection('votes')
         .where('user_email', isEqualTo: userEmail.toLowerCase())
-        .limit(1)
-        .get();
+        .limit(1);
 
-    if (testDocs.docs.length > 0) {
+    if (testDocs.snapshots().contains('$userEmail') != null) {
       //already vote
-      print('$userEmail already voted!');
-    } else {
-      // new vote
-      _firestore.collection('votes').add({
-        'user_email': userEmail,
-        'choice_bool': choiceBool,
-        'choice_gender': choiceGender,
-        'created_at': DateTime.now(),
-      });
-
-      var resp = '$userEmail voted on $choiceGender!';
-
-      print('$userEmail voted on $choiceGender!');
-
+      resp = 'Você já votou espertão! Não pode fraldar a torcida! =P';
+      print(resp);
       return resp;
+    } else {
+      if (choiceGender == null) {
+        resp = 'Selecione um sexo';
+        print(resp);
+        return resp;
+      } else {
+        // new vote
+        _firestore.collection('votes').add({
+          'user_email': userEmail,
+          'choice_bool': choiceBool,
+          'choice_gender': choiceGender,
+          'created_at': DateTime.now(),
+        });
+
+        resp = '$userEmail voted on $choiceGender!';
+
+        print('$userEmail voted on $choiceGender!');
+
+        return resp;
+      }
     }
   } else {
     var resp = 'Email null';

@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
             ),
             // Dashed
             Expanded(
-              flex: 5,
+              flex: 6,
               child: Container(
                 margin: EdgeInsets.only(bottom: 15),
                 child: DashedContainer(
@@ -84,7 +84,7 @@ class LoginPage extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 8),
                             child: Icon(
                               Icons.cloud,
-                              size: 20,
+                              size: 25,
                               color: Colors.lightBlueAccent,
                             ),
                           ),
@@ -93,7 +93,7 @@ class LoginPage extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.lightBlueAccent,
                               fontFamily: 'Gaegu',
-                              fontSize: 30,
+                              fontSize: 35,
                             ),
                           ),
                         ],
@@ -113,7 +113,7 @@ class LoginPage extends StatelessWidget {
                           Text(
                             '19/09/2020',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 22,
                             ),
                           ),
                           Padding(
@@ -127,7 +127,7 @@ class LoginPage extends StatelessWidget {
                           Text(
                             '16h00',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 22,
                             ),
                           ),
                         ],
@@ -147,7 +147,7 @@ class LoginPage extends StatelessWidget {
                           Text(
                             'Rua: Ataulfo Alves, 157 - Itaquá',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 20,
                             ),
                           ),
                         ],
@@ -159,9 +159,9 @@ class LoginPage extends StatelessWidget {
                           Text(
                             '*sugestão de presente: fraldas P ou M',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white60,
                               fontFamily: 'IndieFlower',
-                              fontSize: 16,
+                              fontSize: 18,
                             ),
                           ),
                         ],

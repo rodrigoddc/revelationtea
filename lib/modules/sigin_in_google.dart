@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:revelationtea/screens/home.dart';
+import 'package:revelationtea/screens/vote_screen.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn _googleSignIn = GoogleSignIn(
@@ -47,5 +47,5 @@ void signOutGoogle() async {
 void onGoogleSignIn(context) async {
   User user = await signInWithGoogle();
   Navigator.push(
-      context, MaterialPageRoute(builder: (context) => Home(user: user)));
+      context, MaterialPageRoute(builder: (context) => Vote(user: user)));
 }

@@ -8,18 +8,36 @@ import 'package:revelationtea/screens/results.dart';
 import 'package:revelationtea/widgets/bottom_button.dart';
 import 'package:revelationtea/widgets/gender_box.dart';
 
-class Home extends StatefulWidget {
+class Vote extends StatefulWidget {
   final User user;
-  Home({this.user});
+  Vote({@required this.user});
 
   @override
-  _HomeState createState() => _HomeState();
+  _VoteState createState() => _VoteState();
 }
 
-class _HomeState extends State<Home> {
+class _VoteState extends State<Vote> {
   String choicedGender;
 
   bool choicedBool;
+
+  void _showDialog(String resp) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            resp,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +77,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(
                       fontFamily: 'Sacramento',
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 40,
                     ),
                   ),
                   Text(
@@ -122,7 +140,6 @@ class _HomeState extends State<Home> {
                           onPressed: () async {
                             int m = await getMaleResults();
                             int f = await getFemaleResults();
-
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -144,11 +161,14 @@ class _HomeState extends State<Home> {
                           color: Colors.brown,
                         ),
                         BottomButton(
-                          onPressed: () {
-                            vote(
-                                userEmail: 'b',
-                                choiceBool: choicedBool,
-                                choiceGender: choicedGender);
+                          onPressed: () async {
+                            String resp;
+                            await vote(
+                                    userEmail: widget.user.displayName,
+                                    choiceBool: choicedBool,
+                                    choiceGender: choicedGender)
+                                .then((value) => resp = value)
+                                .whenComplete(() => _showDialog(resp));
                           },
                           label: 'Votar!',
                           choicedBool: choicedBool,

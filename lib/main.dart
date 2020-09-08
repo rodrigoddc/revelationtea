@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:revelationtea/screens/login.dart';
+import 'package:revelationtea/screens/welcome.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
