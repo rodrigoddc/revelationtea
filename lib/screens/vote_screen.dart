@@ -19,8 +19,6 @@ class Vote extends StatefulWidget {
 class _VoteState extends State<Vote> {
   String choicedGender;
 
-  bool choicedBool;
-
   void _showDialog(String resp) {
     showDialog(
       context: context,
@@ -98,26 +96,24 @@ class _VoteState extends State<Vote> {
                   GenderBox(
                     gender: 'Menino',
                     imageBackground: 'assets/img/b.png',
-                    color: choicedGender == 'male'
+                    color: choicedGender == 'menino'
                         ? Colors.lightBlue
                         : Colors.white,
                     onPressed: () {
                       setState(() {
-                        choicedGender = 'male';
-                        choicedBool = false;
+                        choicedGender = 'menino';
                       });
                     },
                   ),
                   GenderBox(
                     gender: 'Menina',
                     imageBackground: 'assets/img/g.png',
-                    color: choicedGender == 'female'
+                    color: choicedGender == 'menina'
                         ? Colors.purpleAccent
                         : Colors.white,
                     onPressed: () {
                       setState(() {
-                        choicedGender = 'female';
-                        choicedBool = false;
+                        choicedGender = 'menina';
                       });
                     },
                   ),
@@ -151,7 +147,6 @@ class _VoteState extends State<Vote> {
                             );
                           },
                           label: "Resultados",
-                          choicedBool: choicedBool,
                           choicedGender: choicedGender,
                           icon: Icon(
                             Icons.insert_chart,
@@ -164,14 +159,12 @@ class _VoteState extends State<Vote> {
                           onPressed: () async {
                             String resp;
                             await vote(
-                                    userEmail: widget.user.displayName,
-                                    choiceBool: choicedBool,
+                                    userEmail: widget.user.email,
                                     choiceGender: choicedGender)
                                 .then((value) => resp = value)
                                 .whenComplete(() => _showDialog(resp));
                           },
                           label: 'Votar!',
-                          choicedBool: choicedBool,
                           choicedGender: choicedGender,
                           icon: Icon(
                             Icons.check_circle_outline,

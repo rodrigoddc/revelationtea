@@ -1,9 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-Future getAll() async {
-  return await FirebaseFirestore.instance.collection('votes').get();
-}
-
 Future<int> getMaleResults() async {
   int maleSize;
 

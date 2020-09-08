@@ -19,7 +19,9 @@ class ListAllResults extends StatelessWidget {
             List<VotesList> votesList = [];
 
             for (var vote in votes) {
-              final userEmail = vote.get('user_email');
+              //only get username from email
+              final String userEmail =
+                  vote.get('user_email').toString().split('@')[0];
               final choicedGender = vote.get('choice_gender');
               final createdAt = vote.get('created_at');
 

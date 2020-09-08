@@ -2,19 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 // ignore: missing_return
-Future<String> vote(
-    {@required String userEmail, bool choiceBool, String choiceGender}) async {
+Future<String> vote({@required String userEmail, String choiceGender}) async {
   var resp;
 
   if (userEmail != '') {
     final _firestore = FirebaseFirestore.instance;
 
-    var testDocs = FirebaseFirestore.instance
+    var testDocs = await FirebaseFirestore.instance
         .collection('votes')
         .where('user_email', isEqualTo: userEmail.toLowerCase())
-        .limit(1);
+        .limit(1)
+        .get();
 
-    if (testDocs.snapshots().contains('$userEmail') != null) {
+    if (testDocs.docs.length > 0) {
       //already vote
       resp = "Você já votou espertão! Não pode 'fraldar' a torcida! =P";
       print(resp);
@@ -28,7 +28,6 @@ Future<String> vote(
         // new vote
         _firestore.collection('votes').add({
           'user_email': userEmail,
-          'choice_bool': choiceBool,
           'choice_gender': choiceGender,
           'created_at': DateTime.now(),
         });
