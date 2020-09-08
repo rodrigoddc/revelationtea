@@ -16,12 +16,12 @@ Future<String> vote(
 
     if (testDocs.snapshots().contains('$userEmail') != null) {
       //already vote
-      resp = 'Você já votou espertão! Não pode fraldar a torcida! =P';
+      resp = "Você já votou espertão! Não pode 'fraldar' a torcida! =P";
       print(resp);
       return resp;
     } else {
       if (choiceGender == null) {
-        resp = 'Selecione um sexo';
+        resp = 'Selecione o sexo para poder votar! Dãr!';
         print(resp);
         return resp;
       } else {
@@ -33,15 +33,15 @@ Future<String> vote(
           'created_at': DateTime.now(),
         });
 
-        resp = '$userEmail voted on $choiceGender!';
+        resp = '$userEmail votou: $choiceGender!';
 
-        print('$userEmail voted on $choiceGender!');
+        print('$userEmail votou: $choiceGender!');
 
         return resp;
       }
     }
   } else {
-    var resp = 'Email null';
+    var resp = 'Precisa estar logado!';
     return resp;
   }
 }
