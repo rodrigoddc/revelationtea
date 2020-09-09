@@ -20,17 +20,20 @@ class ListAllResults extends StatelessWidget {
 
             for (var vote in votes) {
               //only get username from email
-              final String userEmail =
-                  vote.get('user_email').toString().split('@')[0];
-              final choicedGender = vote.get('choice_gender');
-              final createdAt = vote.get('created_at');
+              if (vote.get('user_email') != 'link_live') {
+                final String userEmail = vote.get('user_email');
+                final userName = vote.get('user_name');
+                final choicedGender = vote.get('choice_gender');
+                final createdAt = vote.get('created_at');
 
-              final voteToAdd = VotesList(
-                user: userEmail,
-                gender: choicedGender,
-                createdAt: createdAt.toDate(),
-              );
-              votesList.add(voteToAdd);
+                final voteToAdd = VotesList(
+                  userName: userName,
+                  userEmail: userEmail,
+                  gender: choicedGender,
+                  createdAt: createdAt.toDate(),
+                );
+                votesList.add(voteToAdd);
+              }
             }
             return Expanded(
               child: ListView(
@@ -43,9 +46,10 @@ class ListAllResults extends StatelessWidget {
 }
 
 class VotesList extends StatelessWidget {
-  VotesList({this.user, this.gender, this.createdAt});
+  VotesList({this.userName, this.userEmail, this.gender, this.createdAt});
 
-  final String user;
+  final String userName;
+  final String userEmail;
   final String gender;
   final DateTime createdAt;
 
@@ -67,27 +71,17 @@ class VotesList extends StatelessWidget {
           children: [
             Expanded(
               flex: 3,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8),
-                    child: Icon(
-                      Icons.account_circle,
-                      color: gender == 'male'
-                          ? Colors.lightBlueAccent
-                          : Colors.purpleAccent,
-                    ),
+              child: Container(
+                margin: EdgeInsets.only(left: 20),
+                child: Text(
+                  '$userName',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'ArchitectsDaughter',
+                    fontSize: 20.0,
                   ),
-                  Text(
-                    '$user',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'ArchitectsDaughter',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
             Expanded(
@@ -96,7 +90,7 @@ class VotesList extends StatelessWidget {
                 '$gender',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: gender == 'female'
+                  color: gender == 'menina'
                       ? Colors.purpleAccent
                       : Colors.lightBlueAccent,
                   fontFamily: 'ArchitectsDaughter',

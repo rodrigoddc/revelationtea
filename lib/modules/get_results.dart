@@ -5,7 +5,7 @@ Future<int> getMaleResults() async {
 
   await FirebaseFirestore.instance
       .collection('votes')
-      .where('choice_gender', isEqualTo: 'male'.toLowerCase())
+      .where('choice_gender', isEqualTo: 'menino'.toLowerCase())
       .get()
       .then((value) => maleSize = value.size);
 
@@ -17,7 +17,7 @@ Future<int> getFemaleResults() async {
 
   await FirebaseFirestore.instance
       .collection('votes')
-      .where('choice_gender', isEqualTo: 'female'.toLowerCase())
+      .where('choice_gender', isEqualTo: 'menina'.toLowerCase())
       .get()
       .then((value) => femaleSize = value.size);
 

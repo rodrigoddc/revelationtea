@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
 // ignore: missing_return
-Future<String> vote({@required String userEmail, String choiceGender}) async {
+Future<String> vote(
+    {@required String userEmail, String userName, String choiceGender}) async {
   var resp;
 
   if (userEmail != '') {
@@ -16,25 +17,31 @@ Future<String> vote({@required String userEmail, String choiceGender}) async {
 
     if (testDocs.docs.length > 0) {
       //already vote
-      resp = "Você já votou espertão! Não pode 'fraldar' a torcida! =P";
+      resp = 'Você já votou espertão! Não pode "fraldar" a torcida! =P';
       print(resp);
       return resp;
     } else {
       if (choiceGender == null) {
-        resp = 'Selecione o sexo para poder votar! Dãr!';
+        resp =
+            'Ei $userName, selecione o sexo primeiro para poder votar! Dãããr!';
         print(resp);
         return resp;
       } else {
         // new vote
         _firestore.collection('votes').add({
           'user_email': userEmail,
+          'user_name': userName,
           'choice_gender': choiceGender,
           'created_at': DateTime.now(),
         });
 
-        resp = '$userEmail votou: $choiceGender!';
+        if (choiceGender == 'menino') {
+          resp = '$userName acha que é $choiceGender ooOoO!';
+        } else {
+          resp = '$userName acha que é $choiceGender aaAaA!';
+        }
 
-        print('$userEmail votou: $choiceGender!');
+        print(resp);
 
         return resp;
       }

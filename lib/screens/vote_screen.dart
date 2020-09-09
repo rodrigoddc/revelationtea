@@ -29,8 +29,9 @@ class _VoteState extends State<Vote> {
             resp,
             textAlign: TextAlign.center,
             style: TextStyle(
+              fontFamily: 'ArchitectsDaughter',
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 30,
             ),
           ),
         );
@@ -161,6 +162,7 @@ class _VoteState extends State<Vote> {
                             String resp;
                             await vote(
                                     userEmail: widget.user.email,
+                                    userName: widget.user.displayName,
                                     choiceGender: choicedGender)
                                 .then((value) => resp = value)
                                 .whenComplete(() => _showDialog(resp));
@@ -186,11 +188,8 @@ class _VoteState extends State<Vote> {
                         ),
                         padding: EdgeInsets.all(10),
                         color: Colors.red,
-                        onPressed: () async {
-                          String url;
-                          await urlYoutube()
-                              .then((value) => url = value)
-                              .whenComplete(() => launchYoutubeURL(url));
+                        onPressed: () {
+                          urlYoutube();
                         },
                         child: Column(children: [
                           Row(

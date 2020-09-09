@@ -3,16 +3,22 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Future urlYoutube() async {
-  return await FirebaseFirestore.instance
+void urlYoutube() async {
+  String linkLive = 'link_live';
+  await FirebaseFirestore.instance
       .collection('votes')
-      .where('link_live')
+      .where('user_email', isEqualTo: linkLive.toLowerCase())
       .limit(1)
-      .get();
+      .get()
+      .then(
+    (value) {
+      launchYoutubeURL(value.docs[0].data()['choice_gender']);
+    },
+  );
 }
 
 void launchYoutubeURL(String linkLive) async {
-  String url = 'https://youtu.be/$linkLive';
+  String url = '$linkLive';
 
   if (Platform.isIOS) {
     if (await canLaunch(url)) {

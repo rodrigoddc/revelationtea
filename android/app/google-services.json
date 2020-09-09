@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "159830119448",
-    "firebase_url": "https://revelation-tea.firebaseio.com",
-    "project_id": "revelation-tea",
-    "storage_bucket": "revelation-tea.appspot.com"
+    "project_number": "778282261180",
+    "firebase_url": "https://flutter-revelationtea.firebaseio.com",
+    "project_id": "flutter-revelationtea",
+    "storage_bucket": "flutter-revelationtea.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:159830119448:android:5145fdc5212206018b1f6d",
+        "mobilesdk_app_id": "1:778282261180:android:6966d83dda6dd7764f0eb9",
         "android_client_info": {
           "package_name": "delfino.rodrigo.revelationtea"
         }
       },
       "oauth_client": [
         {
-          "client_id": "159830119448-8761tlg68rqtjn156o0j53132dbd41gb.apps.googleusercontent.com",
+          "client_id": "778282261180-hlapnsulk9m8tkvimi36rjvpalecqosf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "delfino.rodrigo.revelationtea",
+            "certificate_hash": "19ec627c4231b1308b9cfa4317def5c6404e61e6"
+          }
+        },
+        {
+          "client_id": "778282261180-gp82l94g7itn9650sg6b3msj3g121m9u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD7z-HWnMLqQ8H35sjxRDvi5OV4PAjP0f0"
+          "current_key": "AIzaSyDyqMQ6aQCBnYH9AzwY0RAfdswyo5tenhE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "159830119448-8761tlg68rqtjn156o0j53132dbd41gb.apps.googleusercontent.com",
+              "client_id": "778282261180-gp82l94g7itn9650sg6b3msj3g121m9u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
